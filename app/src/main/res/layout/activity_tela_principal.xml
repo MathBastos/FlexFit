@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaPrincipalActivity">
+
+    <TextView
+        android:id="@+id/Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bem_vindo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <Button
+        android:id="@+id/buttonTreinar"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/treinar"
+        app:layout_constraintEnd_toEndOf="@+id/imageTreinar"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/imageTreinar"
+        app:layout_constraintTop_toBottomOf="@+id/imageTreinar" />
+
+    <ImageView
+        android:id="@+id/imageTreinar"
+        android:layout_width="150dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/treinar"
+        app:layout_constraintEnd_toEndOf="@+id/Welcome"
+        app:layout_constraintStart_toStartOf="@+id/Welcome"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome" />
+
+    <ImageView
+        android:id="@+id/imageResultados"
+        android:layout_width="150dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="75dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/resultados"
+        app:layout_constraintEnd_toEndOf="@+id/imageTreinar"
+        app:layout_constraintStart_toStartOf="@+id/imageTreinar"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTreinar" />
+
+    <Button
+        android:id="@+id/buttonResultados"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/resultados"
+        app:layout_constraintEnd_toEndOf="@+id/imageResultados"
+        app:layout_constraintStart_toStartOf="@+id/imageResultados"
+        app:layout_constraintTop_toBottomOf="@+id/imageResultados" />
+</androidx.constraintlayout.widget.ConstraintLayout>
