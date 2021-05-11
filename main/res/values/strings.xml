@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Flexfit</string>
+    <string name="flexfit">Flexfit</string>
+    <string name="usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="login" />
+    <string name="string_login" />
+    <string name="cadastro">Cadastro</string>
+    <string name="salvar">Salvar</string>
+    <string name="bem_vindo">Bem Vindo</string>
+    <string name="treinar">Treinar</string>
+    <string name="resultados">Resultados</string>
+    <string name="todo">TODO</string>
+</resources>
