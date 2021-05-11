@@ -32,7 +32,7 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(this, "Por favor preencher todos os campos", Toast.LENGTH_SHORT).show();
         }else{
                 Usuario u = new Usuario();
-                database.inserirUsuario(u);
+                database.inserirUsuario(u, this);
                 Toast.makeText(this, "Usuario inserido", Toast.LENGTH_SHORT).show();
                 Intent intentSalvar = new Intent(CadastroActivity.this, MainActivity.class);
                 startActivity(intentSalvar);

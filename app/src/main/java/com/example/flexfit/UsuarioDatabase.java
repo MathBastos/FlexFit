@@ -13,6 +13,8 @@ public class UsuarioDatabase extends SQLiteOpenHelper {
     private static final String name = "Flexfit.sqlite";
     private static final int version = 1;
     private static final String DB_TABLE = "Usuarios";
+    private static final String DB_Usuario = "usuario";
+    private static final String DB_senha = "senha";
 
 
     private Context context;
@@ -24,7 +26,9 @@ public class UsuarioDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-       String query = "CREATE TABLE "+ DB_TABLE +"(usuario TEXT PRIMARY KEY, senha TEXT);";
+       String query = "CREATE TABLE "+ DB_TABLE +"("
+               + DB_Usuario + " TEXT,"
+               + DB_senha + " TEXT)";
        db.execSQL(query);
     }
 
@@ -33,8 +37,8 @@ public class UsuarioDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Usuarios");
         onCreate(db);
     }
-    public long inserirUsuario(Usuario usuario){
-        SQLiteDatabase database = getWritableDatabase();
+    public long inserirUsuario(Usuario usuario, Context context){
+        SQLiteDatabase database = new UsuarioDatabase(context).getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("usuario", usuario.getUsuario());
         values.put("senha", usuario.getSenha());
@@ -42,9 +46,9 @@ public class UsuarioDatabase extends SQLiteOpenHelper {
         return result;
     }
 
-    public String checkUsuarioSenha(String usuario, String senha){
-        SQLiteDatabase banco = getReadableDatabase();
-        Cursor cursor = banco.rawQuery("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?", new String[] {usuario, senha});
+    public String checkUsuarioSenha(String usuario, String senha, Context context){
+        SQLiteDatabase banco = new UsuarioDatabase(context).getReadableDatabase();
+        Cursor cursor = banco.rawQuery("SELECT * FROM Usuarios WHERE usuario = ? AND senha = ?", new String[] {usuario, senha});
         if(cursor.getCount() > 0)
             return "OK";
         else

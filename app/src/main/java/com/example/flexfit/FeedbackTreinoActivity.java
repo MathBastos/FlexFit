@@ -1,11 +1,16 @@
 package com.example.flexfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FeedbackTreinoActivity extends AppCompatActivity {
 
@@ -13,8 +18,6 @@ public class FeedbackTreinoActivity extends AppCompatActivity {
     private SeekBar seekBarRecomendacao;
     private TextView textFeedback;
     private TextView textRecomendacao;
-    private Button buttonEnviar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +28,12 @@ public class FeedbackTreinoActivity extends AppCompatActivity {
         textFeedback = findViewById(R.id.textFeedback);
         seekBarRecomendacao = findViewById(R.id.seekBarRecomendacao);
         textRecomendacao = findViewById(R.id.textRecomendacao);
-        buttonEnviar= findViewById(R.id.buttonEnviar);
 
         seekBarFeedback.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                textFeedback.setText(progress);
+                textFeedback.setText(String.valueOf(progress));
 
             }
 
@@ -50,7 +52,7 @@ public class FeedbackTreinoActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                textRecomendacao.setText(progress);
+                textRecomendacao.setText(String.valueOf(progress));
 
             }
 
@@ -66,4 +68,10 @@ public class FeedbackTreinoActivity extends AppCompatActivity {
         });
 
     }
+    public void buttonEnviarOnClick(View view){
+        Intent intentTreino = new Intent(FeedbackTreinoActivity.this, TreinarActivity.class);
+        startActivity(intentTreino);
+        Toast.makeText(this, "Enviaremos seu Feedback, obrigado!", Toast.LENGTH_SHORT).show();
+    }
+
 }

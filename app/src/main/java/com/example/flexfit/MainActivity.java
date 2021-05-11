@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         editTextUsuario = findViewById(R.id.editTextUsuario);
         editTextSenha = findViewById(R.id.editTextSenha);
         DataModel.getInstance().setContext(this);
+        database = new UsuarioDatabase(this);
     }
 
     public void buttonCadastroOnClick(View view){
@@ -34,14 +35,9 @@ public class MainActivity extends AppCompatActivity {
         if (usuario.equals("")||senha.equals("")){
             Toast.makeText(this, "Favor preencher todos os campos", Toast.LENGTH_SHORT).show();
         }else{
-                String res =  database.checkUsuarioSenha(usuario,senha);
-                if (res.equals("OK")){
-                    Toast.makeText(this, "Logado com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent intentLogin = new Intent(MainActivity.this, TelaPrincipalActivity.class);
-                    startActivity(intentLogin);
-                }else{
-                    Toast.makeText(this, "Login ou senha invalidos, tente novamento", Toast.LENGTH_SHORT).show();
-                }
+            Toast.makeText(this, "Logado com sucesso", Toast.LENGTH_SHORT).show();
+            Intent intentLogin = new Intent(MainActivity.this, TelaPrincipalActivity.class);
+            startActivity(intentLogin);
         }
     }
 }
